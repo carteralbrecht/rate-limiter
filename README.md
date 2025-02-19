@@ -2,8 +2,7 @@
 
 A robust, Redis-backed rate limiter service implementing the token bucket algorithm. Built with Go and gRPC for high performance and scalability.
 
-[![Go Version](https://img.shields.io/github/go-mod/go-version/carteralbrecht/rate-limiter)](go.mod)
-[![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)]()
+![Coverage](./coverage.svg)
 
 ## ✨ Features
 

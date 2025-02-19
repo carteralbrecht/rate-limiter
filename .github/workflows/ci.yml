@@ -40,13 +40,35 @@ jobs:
           cache: true
 
       - name: Run unit tests
-        run: make test
+        run: go test -v -coverprofile=coverage.txt -covermode=atomic ./...
 
+      - name: Generate coverage badge
+        uses: tj-actions/coverage-badge-go@v2
+        with:
+          filename: coverage.txt
+
+      - name: Verify Changed files
+        uses: tj-actions/verify-changed-files@v17
+        id: verify-changed-files
+        with:
+          files: README.md
+
+      - name: Commit changes
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git commit -m "chore: Updated coverage badge."
+          git push
+        
       - name: Upload coverage
         uses: actions/upload-artifact@v4
         with:
           name: coverage
-          path: coverage.html
+          path: |
+            coverage.txt
+            coverage.html
 
   integration:
     name: Integration Tests
