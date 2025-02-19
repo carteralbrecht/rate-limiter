@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package ratelimiter;
+
+option go_package = "github.com/carteralbrecht/rate-limiter/proto";
+
+service RateLimiter {
+  // Check if a request can pass through the rate limiter
+  rpc CheckLimit(CheckRequest) returns (CheckResponse);
+
+  // Refill tokens periodically (leaky bucket)
+  rpc RefillBucket(RefillRequest) returns (RefillResponse);
+}
+
+message CheckRequest {
+  string key = 1;          // Unique identifier (e.g., user ID, IP)
+  int32 token_cost = 2;    // How many tokens this request costs
+}
+
+message CheckResponse {
+  bool allowed = 1;        // Whether the request is permitted
+  int32 remaining = 2;     // Remaining tokens in the bucket
+}
+
+message RefillRequest {
+  string key = 1;          // Unique identifier
+  int32 leak_rate = 2;     // How many tokens per second leak out
+  int32 bucket_size = 3;   // Maximum capacity of the bucket
+}
+
+message RefillResponse {
+  int32 current_tokens = 1; // Updated token count after refill
+}
