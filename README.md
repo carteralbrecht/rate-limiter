@@ -1,8 +1,15 @@
 # 🚦 High-Performance Rate Limiter
 
-A robust, Redis-backed rate limiter service implementing the token bucket algorithm. Built with Go and gRPC for high performance and scalability.
+<div align="center">
+  <a href="https://go.dev/" target="_blank"><img src="https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white" alt="Go"></a>
+  <a href="https://redis.io/" target="_blank"><img src="https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white" alt="Redis"></a>
+  <a href="https://grpc.io/" target="_blank"><img src="https://img.shields.io/badge/gRPC-%23244c5a.svg?style=for-the-badge&logo=google&logoColor=white" alt="gRPC"></a>
+  <a href="https://www.docker.com/" target="_blank"><img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"></a>
+  <a href="https://grafana.com/" target="_blank"><img src="https://img.shields.io/badge/grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white" alt="Grafana"></a>
+  <a href="https://prometheus.io/" target="_blank"><img src="https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white" alt="Prometheus"></a>
+</div>
 
-![Coverage](./coverage.svg)
+A robust, Redis-backed rate limiter service implementing the token bucket algorithm. Built with Go and gRPC for high performance and scalability.
 
 ## ✨ Features
 
